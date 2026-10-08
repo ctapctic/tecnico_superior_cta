@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnico Superior en TIC - SNPP CTA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <style>
+        * {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #9333EA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #0284c7 100%);
+        }
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-blue-500 selection:text-white">
+
+    <!-- TOP NAVBAR -->
+    <header class="glass fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center border-b border-slate-800">
+        <div class="flex items-center space-x-3">
+            <div class="bg-gradient-to-tr from-blue-600 to-violet-600 p-2.5 rounded-xl shadow-lg shadow-blue-500/30">
+                <i class="fa-solid font-bold fa-code text-white text-xl"></i>
+            </div>
+            <div>
+                <span class="font-extrabold text-lg tracking-wider block leading-none">SNPP <span class="text-blue-400">CTA</span></span>
+                <span class="text-xs text-slate-400">Técnico Superior en TIC</span>
+            </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="hidden md:flex items-center space-x-2" id="dotsContainer">
+            <!-- Dots dynamically generated -->
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20" id="slideCounter">
+                Diapositiva 1 / 10
+            </span>
+        </div>
+    </header>
+
+    <!-- MAIN SLIDES CONTAINER -->
+    <main class="flex-grow flex items-center justify-center pt-24 pb-20 px-4 md:px-12 max-w-7xl mx-auto w-full">
+
+        <!-- SLIDE 1: PORTADA -->
+        <section class="slide active flex-col items-center text-center justify-center space-y-8 w-full py-8">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-blue-400 text-sm font-medium animate-pulse">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Carrera de Formación Técnica Superior (2 Años)</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight max-w-4xl">
+                Transforma tu Futuro con <br>
+                <span class="gradient-text">Desarrollo de Sistemas e IA</span>
+            </h1>
+            
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl font-normal leading-relaxed">
+                Conviértete en el profesional informático que las empresas globales buscan. Formación práctica, laboratorios equipados y titulación oficial en el SNPP-CTA.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl pt-4">
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <i class="fa-solid fa-clock text-blue-400 text-2xl mb-2"></i>
+                    <h2 class="font-bold text-white text-lg">2 Años</h2>
+                    <p class="text-xs text-slate-400">4 Semestres Cátedra</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <i class="fa-solid fa-laptop-code text-violet-400 text-2xl mb-2"></i>
+                    <h2 class="font-bold text-white text-lg">100% Práctico</h2>
+                    <p class="text-xs text-slate-400">Aprender Haciendo</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <i class="fa-solid fa-brain text-emerald-400 text-2xl mb-2"></i>
+                    <h2 class="font-bold text-white text-lg">IA Integrada</h2>
+                    <p class="text-xs text-slate-400">Malla de Vanguardia</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <i class="fa-solid fa-briefcase text-amber-400 text-2xl mb-2"></i>
+                    <h2 class="font-bold text-white text-lg">500 Hs</h2>
+                    <p class="text-xs text-slate-400">Pasantía Real</p>
+                </div>
+            </div>
+
+            <button onclick="nextSlide()" class="mt-6 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-lg shadow-xl shadow-blue-500/25 transition-all transform hover:scale-105 flex items-center space-x-3">
+                <span>Explorar la Carrera</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <!-- SLIDE 2: PERFILES DE INGRESO Y EGRESO -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Orientación Vocacional</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Perfil de Entrada vs. Perfil Profesional</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 w-full">
+                <!-- Perfil de Entrada -->
+                <div class="glass-card p-6 md:p-8 rounded-3xl border-l-4 border-blue-500 space-y-4">
+                    <div class="flex items-center space-x-3 text-blue-400">
+                        <i class="fa-solid fa-user-graduate text-2xl"></i>
+                        <h3 class="text-2xl font-bold text-white">Perfil de Entrada (Aspirante)</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300 text-sm md:text-base">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-blue-400 mt-1"></i>
+                            <span><strong>Requisito:</strong> Egresado de Educación Media (Bachiller de cualquier especialidad).</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-blue-400 mt-1"></i>
+                            <span>Competencias básicas en razonamiento lógico, matemática elemental y comprensión lectora.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-blue-400 mt-1"></i>
+                            <span>Curiosidad y pasión por la tecnología, los software, sitios web y las aplicaciones móviles.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-blue-400 mt-1"></i>
+                            <span>Capacidad de análisis, trabajo en equipo y deseo de aprendizaje continuo.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Perfil de Salida -->
+                <div class="glass-card p-6 md:p-8 rounded-3xl border-l-4 border-emerald-500 space-y-4">
+                    <div class="flex items-center space-x-3 text-emerald-400">
+                        <i class="fa-solid fa-user-check text-2xl"></i>
+                        <h3 class="text-2xl font-bold text-white">Perfil Profesional de Salida</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300 text-sm md:text-base">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span>Desarrollo de Sistemas Web robustos (Frontend UI/UX y Backend dinámico).</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span>Creación de Apps Móviles y solución de procesos informáticos.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span>Integración de Inteligencia Artificial (IA) en aplicaciones web empresariales.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span>Diseño, gestión y optimización de Bases de Datos SQL y NoSQL.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: TRAYECTO TEMPORAL Y CRONOGRAMA -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Trayecto Formativo</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Línea del Tiempo de tus 2 Años de Estudio</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                <!-- Paso 0 -->
+                <div class="glass-card p-5 rounded-2xl border-t-4 border-amber-500 relative">
+                    <span class="absolute -top-3 right-4 bg-amber-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded-full">PREVIO</span>
+                    <h3 class="font-bold text-lg text-amber-400 mb-1">Cursillo Probatorio (CPI)</h3>
+                    <p class="text-xs text-slate-400 font-semibold mb-3">Previo al 1° Semestre</p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Nivelación intensiva en Lógica de Programación, Razonamiento Matemático y Comprensión Técnica.
+                    </p>
+                </div>
+
+                <!-- Paso 1 -->
+                <div class="glass-card p-5 rounded-2xl border-t-4 border-blue-500">
+                    <span class="bg-blue-500/20 text-blue-300 text-xs px-2 py-0.5 rounded font-mono block w-fit mb-2">AÑO 1 (Sem. 1 y 2)</span>
+                    <h3 class="font-bold text-lg text-blue-400 mb-1">Fundamentos y Estructura</h3>
+                    <p class="text-xs text-slate-400 font-semibold mb-3">900 Hs Cátedra Totales</p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Algoritmos, POO, Bases de Datos, Hardware, Redes y Maquetación Web Frontend UI/UX.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="glass-card p-5 rounded-2xl border-t-4 border-violet-500">
+                    <span class="bg-violet-500/20 text-violet-300 text-xs px-2 py-0.5 rounded font-mono block w-fit mb-2">AÑO 2 (Sem. 3 y 4)</span>
+                    <h3 class="font-bold text-lg text-violet-400 mb-1">Especialización e IA</h3>
+                    <p class="text-xs text-slate-400 font-semibold mb-3">900 Hs Cátedra Totales</p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Programación Web Avanzada, Integración de IA, Servidores, Apps Móviles y Proyecto Final.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="glass-card p-5 rounded-2xl border-t-4 border-emerald-500">
+                    <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded font-mono block w-fit mb-2">ETAPA FINAL</span>
+                    <h3 class="font-bold text-lg text-emerald-400 mb-1">Pasantía Profesional</h3>
+                    <p class="text-xs text-slate-400 font-semibold mb-3">500 Hs Reloj en Empresas</p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Inserción directa en el mercado laboral real aplicando los sistemas creados.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center">
+                <p class="text-sm text-slate-300">
+                    <i class="fa-solid fa-graduation-cap text-blue-400 mr-2"></i>
+                    <strong>Resultado Final:</strong> Título Oficial de Técnico Superior en TIC en Desarrollo de Sistemas Informático.
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: MAPA MENTAL / MALLA CURRICULAR -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Mapa Curricular</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-1">Distribución de Materias por Semestre</h2>
+                </div>
+                <div class="flex space-x-2 mt-3 md:mt-0">
+                    <button onclick="showSemestre(1)" class="sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white" id="btnSem1">Sem 1</button>
+                    <button onclick="showSemestre(2)" class="sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700" id="btnSem2">Sem 2</button>
+                    <button onclick="showSemestre(3)" class="sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700" id="btnSem3">Sem 3</button>
+                    <button onclick="showSemestre(4)" class="sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700" id="btnSem4">Sem 4</button>
+                </div>
+            </div>
+
+            <!-- Semestre Content Container -->
+            <div id="semestreContent" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </section>
+
+        <!-- SLIDE 5: BLOQUE 1 - SALIDAS LABORALES & SALARIOS -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Estrategia Laboral</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Salidas Laborales y Mercado Tecnológico</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 w-full">
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">Desarrollador Full Stack</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Diseño total de aplicaciones web (Frontend interactivo + Backend con servidores y base de datos).
+                        </p>
+                    </div>
+                    <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 w-fit">Demanda Muy Alta</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-violet-500/20 text-violet-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">Especialista en IA & Apps</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Integración de modelos generativos, automatizaciones inteligentes en sistemas web y creación de Apps Móviles.
+                        </p>
+                    </div>
+                    <span class="text-xs font-semibold px-3 py-1 rounded-full bg-violet-500/10 text-violet-300 w-fit">Puesto del Futuro</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">Trabajo Remoto Global</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Apertura para trabajar desde Paraguay para empresas multinacionales o como Freelancer independiente.
+                        </p>
+                    </div>
+                    <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 w-fit">Flexibilidad Total</span>
+                </div>
+            </div>
+
+            <!-- Interactivo: Calculadora Simple de Proyección -->
+            <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between border border-blue-500/30">
+                <div class="space-y-1 mb-4 md:mb-0">
+                    <h4 class="font-bold text-white text-lg"><i class="fa-solid fa-calculator text-blue-400 mr-2"></i>Proyección de Trabajo TIC</h4>
+                    <p class="text-xs text-slate-400">El sector de desarrollo de software registra una tasa de empleabilidad superior al 85%.</p>
+                </div>
+                <div class="flex items-center space-x-6 text-center">
+                    <div>
+                        <span class="text-2xl font-extrabold text-emerald-400 block">Junior</span>
+                        <span class="text-xs text-slate-400">Inserción Inicial</span>
+                    </div>
+                    <div class="h-8 w-px bg-slate-700"></div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-blue-400 block">Senior / Remote</span>
+                        <span class="text-xs text-slate-400">Mercado Global</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: BLOQUE 2 - VENTAJAS DEL SNPP CTA -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Por Qué Elegirnos</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Ventajas Competitivas del SNPP-CTA</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+                <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                    <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Educación Gratuita</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Formación de nivel superior con respaldo del Ministerio de Trabajo, Empleo y Seguridad Social (MTESS).
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                    <div class="w-14 h-14 bg-violet-500/20 text-violet-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Equipamiento Top</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Laboratorios de informática con computadoras de alto rendimiento y conectividad de fibra óptica.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                    <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Docentes Expertos</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Instructores capacitados con trayectoria activa en el sector tecnológico y empresarial.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                    <div class="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Título Oficial</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Certificación gubernamental de Técnico Superior ampliamente reconocida por las empresas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: INFRAESTRUCTURA Y LABORATORIOS -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Instalaciones de Avanzada</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Infraestructura y Laboratorios de Práctica</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 w-full">
+                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-blue-500">
+                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
+                        <i class="fa-solid fa-desktop text-6xl text-slate-700 group-hover:text-blue-500 transition-all"></i>
+                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Labs de Desarrollo</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Laboratorios de Computación</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Puestos individuales equipados con software de desarrollo actualizado (IDEs, motores de base de datos, entornos Docker).
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-violet-500">
+                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
+                        <i class="fa-solid fa-server text-6xl text-slate-700 group-hover:text-violet-500 transition-all"></i>
+                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Infraestructura</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Redes y Servidores Real</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Servidores dedicados para desplegar sistemas web, práctica de seguridad informática y administración de bases de datos.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-emerald-500">
+                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
+                        <i class="fa-solid fa-wifi text-6xl text-slate-700 group-hover:text-emerald-500 transition-all"></i>
+                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Campus Digital</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Campus Climatizado</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Aulas confortables con proyectores interactivos, internet de alta velocidad y ambiente colaborativo tipo fábrica de software.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: BLOQUE 3 - DEMO EN VIVO & MITOS -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Dinámica Interactiva</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Mitos vs. Realidades & Demo de Código</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 w-full">
+                <!-- Interactive Code Demo -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-white flex items-center"><i class="fa-solid fa-terminal text-blue-400 mr-2"></i>Simulador de Código IA</h3>
+                        <button onclick="runDemoCode()" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-bold transition-all">
+                            Ejecutar <i class="fa-solid fa-play ml-1"></i>
+                        </button>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-emerald-400 h-48 overflow-y-auto border border-slate-800" id="codeConsole">
+                        <span class="text-slate-500">// Presiona "Ejecutar" para simular la creación de un sistema con Inteligencia Artificial...</span>
+                    </div>
+                </div>
+
+                <!-- Mitos vs Realidades -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <h3 class="font-bold text-white text-lg">Mitos Frecuentes de la Carrera</h3>
+                    <div class="space-y-3">
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-red-400 font-bold block">❌ MITO: "Debes ser un genio en matemáticas"</span>
+                            <span class="text-xs text-slate-300">✔️ REALIDAD: Se requiere lógica. Se te enseña la estructura desde cero en el Cursillo Probatorio.</span>
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-red-400 font-bold block">❌ MITO: "Necesitas inglés perfecto para empezar"</span>
+                            <span class="text-xs text-slate-300">✔️ REALIDAD: La malla incluye la materia de Inglés Técnico en el Semestre 1 para nivelarte.</span>
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-red-400 font-bold block">❌ MITO: "Programar es aburrido y solitario"</span>
+                            <span class="text-xs text-slate-300">✔️ REALIDAD: Trabajas en equipo creando apps, videojuegos y soluciones innovadoras con IA.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: BLOQUE 4 - REQUISITOS DE PREINSCRIPCIÓN -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center md:text-left">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Proceso de Postulación</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1">Requisitos para la Preinscripción</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 w-full">
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-blue-500 space-y-3">
+                    <div class="text-blue-400 font-black text-3xl">01</div>
+                    <h3 class="font-bold text-white text-lg">Documentación Cédula</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Fotocopia de Cédula de Identidad Civil vigente (ambos lados en hoja legible).
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-violet-500 space-y-3">
+                    <div class="text-violet-400 font-black text-3xl">02</div>
+                    <h3 class="font-bold text-white text-lg">Título de Secundaria</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Fotocopia del Certificado de Estudios de la Educación Media visado (o constancia de estar cursando el 3° año).
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-emerald-500 space-y-3">
+                    <div class="text-emerald-400 font-black text-3xl">03</div>
+                    <h3 class="font-bold text-white text-lg">Formulario Digital</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Completar la preinscripción en el sistema oficial del SNPP mediante el código QR.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-blue-600/10 border border-blue-500/30 p-4 rounded-2xl flex items-center space-x-4">
+                <i class="fa-solid fa-circle-info text-blue-400 text-2xl"></i>
+                <p class="text-xs text-slate-300">
+                    <strong>Importante:</strong> Las plazas para el Cursillo Probatorio de Ingreso son limitadas. Te recomendamos realizar la preinscripción online con anticipación.
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: QR DINÁMICO & CONTACTO -->
+        <section class="slide flex-col space-y-6 w-full">
+            <div class="text-center">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">¡Asegura tu Lugar!</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-1">Preinscripción Online y Contacto</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto w-full">
+                <!-- QR Card Container -->
+                <div class="glass p-8 rounded-3xl text-center space-y-4 border border-blue-500/30 flex flex-col items-center">
+                    <h3 class="font-bold text-white text-lg">Escanea para Preinscribirte</h3>
+                    
+                    <!-- Generated QR Code Wrapper -->
+                    <div class="bg-white p-4 rounded-2xl shadow-2xl inline-block" id="qrcode"></div>
+                    
+                    <p class="text-xs text-slate-400">Acceso directo al portal oficial del SNPP</p>
+                </div>
+
+                <!-- Info de Contacto SNPP CTA -->
+                <div class="space-y-4 text-left">
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Sede SNPP CTA</h4>
+                            <p class="text-xs text-slate-400">San Lorenzo - Ruta Mcal. Estigarribia Km 10.5 (Frente a la UNA)</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Atención por WhatsApp</h4>
+                            <p class="text-xs text-slate-400 font-mono">0981 200 015</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-violet-500/20 text-violet-400 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Líneas Telefónicas Directas</h4>
+                            <p class="text-xs text-slate-400 font-mono">(021) 585-125 / (021) 326-8299</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Portal Web Oficial</h4>
+                            <p class="text-xs text-slate-400">www.snpp.edu.py</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM CONTROLS BAR -->
+    <footer class="glass fixed bottom-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center border-t border-slate-800">
+        <button onclick="prevSlide()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center space-x-2 border border-slate-700">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+            <span>Anterior</span>
+        </button>
+
+        <span class="text-xs text-slate-500 hidden sm:inline">Usa las flechas del teclado (← / →) para navegar</span>
+
+        <button onclick="nextSlide()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all flex items-center space-x-2 shadow-lg shadow-blue-500/20">
+            <span>Siguiente</span>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DATA DE LA MALLA CURRICULAR POR SEMESTRE (OFICIAL)
+        const mallaData = {
+            1: [
+                { nombre: "Matemática", hs: 36, desc: "Bases lógicas y numéricas." },
+                { nombre: "Inglés Técnico", hs: 36, desc: "Vocabulario clave en programación." },
+                { nombre: "Comunicación Oral y Escrita", hs: 36, desc: "Expresión técnica e informes." },
+                { nombre: "Informática Aplicada", hs: 16, desc: "Entorno digital avanzado." },
+                { nombre: "Arquitectura de Computadoras", hs: 54, desc: "Hardware y sistemas operativos." },
+                { nombre: "Fundamentos de Programación", hs: 90, desc: "Lógica, algoritmos y estructuras." },
+                { nombre: "Fundamentos de Base de Datos", hs: 90, desc: "Diseño SQL y tablas relacionales." },
+                { nombre: "Diseño Gráfico Web UI/UX", hs: 54, desc: "Prototipado e interfaces gráficas." }
+            ],
+            2: [
+                { nombre: "Matemática Aplicada", hs: 36, desc: "Lógica aplicada a sistemas." },
+                { nombre: "Guaraní", hs: 36, desc: "Competencia lingüística nacional." },
+                { nombre: "Tecnología y Seguridad Redes", hs: 54, desc: "Protocolos e infraestructura." },
+                { nombre: "Programación Orientada Objetos", hs: 90, desc: "Paradigma POO avanzado." },
+                { nombre: "Diseño y Admin. Base de Datos", hs: 54, desc: "Optimización y consultas." },
+                { nombre: "Diseño Web Frontend UI/UX", hs: 90, desc: "Sitios interactivos y responsivos." },
+                { nombre: "Intro a Web Services", hs: 54, desc: "Desarrollo de APIs." },
+                { nombre: "Contabilidad Básica", hs: 36, desc: "Procesos financieros." }
+            ],
+            3: [
+                { nombre: "Metodología de la Investigación", hs: 36, desc: "Técnicas de documentación." },
+                { nombre: "Integración de IA en Web", hs: 36, desc: "Conexión con modelos de IA." },
+                { nombre: "Tecnología Servidores", hs: 54, desc: "Backend e infraestructura." },
+                { nombre: "Programación Web I", hs: 90, desc: "Sistemas web dinámicos." },
+                { nombre: "Aplicaciones ERP", hs: 54, desc: "Sistemas de gestión empresarial." },
+                { nombre: "Desarrollo con IA Integrada", hs: 90, desc: "Software inteligente." },
+                { nombre: "Análisis y Diseño de Sistemas", hs: 90, desc: "Modelado UML y arquitectura." }
+            ],
+            4: [
+                { nombre: "Ética Profesional", hs: 36, desc: "Responsabilidad y conducta." },
+                { nombre: "Gestión de Calidad", hs: 36, desc: "Testing y QA de software." },
+                { nombre: "Gestión de Proyectos", hs: 54, desc: "Metodologías ágiles (Scrum)." },
+                { nombre: "Programación Web II", hs: 90, desc: "Arquitecturas web complejas." },
+                { nombre: "Programación App Móviles", hs: 54, desc: "Desarrollo Android/iOS." },
+                { nombre: "Emprendimiento Empresarial", hs: 80, desc: "Modelos de negocio." },
+                { nombre: "Proyecto Final", hs: 100, desc: "Desarrollo de sistema real." }
+            ]
+        };
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // INIT FUNCTIONS
+        window.addEventListener('DOMContentLoaded', () => {
+            createDots();
+            showSemestre(1);
+            generateQRCode();
+            updateSlideUI();
+        });
+
+        // SLIDE NAVIGATION LOGIC
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            
+            currentSlide = index;
+            updateSlideUI();
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function createDots() {
+            const dotsContainer = document.getElementById('dotsContainer');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all ${i === 0 ? 'bg-blue-500 w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
+                dot.onclick = () => showSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateSlideUI() {
+            document.getElementById('slideCounter').innerText = `Diapositiva ${currentSlide + 1} / ${totalSlides}`;
+            const dots = document.getElementById('dotsContainer').children;
+            Array.from(dots).forEach((dot, i) => {
+                dot.className = `h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-blue-500 w-6' : 'bg-slate-700 hover:bg-slate-500 w-2.5'}`;
+            });
+        }
+
+        // KEYBOARD NAVIGATION
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // DISPLAY SEMESTRE MATERIAS
+        function showSemestre(sem) {
+            const container = document.getElementById('semestreContent');
+            container.innerHTML = '';
+
+            // Update buttons style
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`btnSem${i}`);
+                if (i === sem) {
+                    btn.className = "sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-lg shadow-blue-500/30";
+                } else {
+                    btn.className = "sem-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700";
+                }
+            }
+
+            mallaData[sem].forEach(materia => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-4 rounded-xl border-l-2 border-blue-400 space-y-1";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-sm">${materia.nombre}</h4>
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">${materia.hs} HS</span>
+                    </div>
+                    <p class="text-xs text-slate-400">${materia.desc}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // SIMULADOR DEMO DE CÓDIGO
+        function runDemoCode() {
+            const consoleEl = document.getElementById('codeConsole');
+            consoleEl.innerHTML = '';
+            
+            const lines = [
+                "> Inicializando Entorno SNPP-CTA...",
+                "> Conectando a Motor de IA...",
+                "> import { IA_Model } from '@snpp/ai-core';",
+                "> const app = new SistemaWeb();",
+                "> app.integrateIA({ mode: 'Auto-Code' });",
+                "> Generando interfaz UI/UX responsiva...",
+                "> Base de datos SQL vinculada con éxito.",
+                "> Status: ¡SISTEMA OPERATIVO Y LISTO PARA DESPLIEGUE!"
+            ];
+
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    const p = document.createElement('div');
+                    p.className = index === lines.length - 1 ? "text-blue-400 font-bold mt-2" : "text-slate-300";
+                    p.innerText = line;
+                    consoleEl.appendChild(p);
+                    consoleEl.scrollTop = consoleEl.scrollHeight;
+                }, index * 400);
+            });
+        }
+
+        // QR CODE GENERATOR
+        function generateQRCode() {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = "";
+            new QRCode(qrContainer, {
+                text: "https://www.snpp.edu.py",
+                width: 140,
+                height: 140,
+                colorDark: "#0f172a",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
