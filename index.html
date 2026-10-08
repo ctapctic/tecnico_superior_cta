@@ -400,47 +400,68 @@
         </section>
 
         <!-- SLIDE 7: INFRAESTRUCTURA Y LABORATORIOS -->
-        <section class="slide flex-col space-y-6 w-full">
-            <div class="text-center md:text-left">
-                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Instalaciones de Avanzada</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-1">Infraestructura y Laboratorios de Práctica</h2>
+<section class="slide flex-col space-y-6 w-full">
+    <div class="text-center md:text-left">
+        <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">Instalaciones de Avanzada</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-1">Infraestructura y Laboratorios de Práctica</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 w-full">
+        <!-- Tarjeta 1: Labs de Desarrollo / Alumnos Programando -->
+        <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-blue-500 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="h-44 bg-slate-800 rounded-xl relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" 
+                         alt="Alumnos desarrollando código" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+                    <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded text-slate-200 border border-slate-700/50">
+                        Labs de Desarrollo
+                    </span>
+                </div>
+                <h3 class="font-bold text-lg text-white">Laboratorios de Computación</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Puestos individuales equipados con software de desarrollo actualizado (IDEs, motores de base de datos, entornos Docker).
+                </p>
             </div>
+        </div>
 
-            <div class="grid md:grid-cols-3 gap-6 w-full">
-                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-blue-500">
-                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
-                        <i class="fa-solid fa-desktop text-6xl text-slate-700 group-hover:text-blue-500 transition-all"></i>
-                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Labs de Desarrollo</span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Laboratorios de Computación</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Puestos individuales equipados con software de desarrollo actualizado (IDEs, motores de base de datos, entornos Docker).
-                    </p>
+        <!-- Tarjeta 2: Servidores e Infraestructura Real -->
+        <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-violet-500 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="h-44 bg-slate-800 rounded-xl relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" 
+                         alt="Servidores e Infraestructura" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+                    <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded text-slate-200 border border-slate-700/50">
+                        Infraestructura
+                    </span>
                 </div>
-
-                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-violet-500">
-                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
-                        <i class="fa-solid fa-server text-6xl text-slate-700 group-hover:text-violet-500 transition-all"></i>
-                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Infraestructura</span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Redes y Servidores Real</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Servidores dedicados para desplegar sistemas web, práctica de seguridad informática y administración de bases de datos.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-emerald-500">
-                    <div class="h-40 bg-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
-                        <i class="fa-solid fa-wifi text-6xl text-slate-700 group-hover:text-emerald-500 transition-all"></i>
-                        <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 px-2 py-1 rounded text-slate-300">Campus Digital</span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Campus Climatizado</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Aulas confortables con proyectores interactivos, internet de alta velocidad y ambiente colaborativo tipo fábrica de software.
-                    </p>
-                </div>
+                <h3 class="font-bold text-lg text-white">Redes y Servidores Real</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Servidores dedicados para desplegar sistemas web, práctica de seguridad informática y administración de bases de datos.
+                </p>
             </div>
-        </section>
+        </div>
+
+        <!-- Tarjeta 3: Campus Digital y Aulas Colaborativas -->
+        <div class="glass-card p-6 rounded-2xl space-y-4 border-t-4 border-emerald-500 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="h-44 bg-slate-800 rounded-xl relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
+                         alt="Campus y ambiente colaborativo" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+                    <span class="absolute bottom-2 left-2 text-xs bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded text-slate-200 border border-slate-700/50">
+                        Campus Digital
+                    </span>
+                </div>
+                <h3 class="font-bold text-lg text-white">Campus Climatizado</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Aulas confortables con proyectores interactivos, internet de alta velocidad y ambiente colaborativo tipo fábrica de software.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- SLIDE 8: BLOQUE 3 - DEMO EN VIVO & MITOS -->
         <section class="slide flex-col space-y-6 w-full">
